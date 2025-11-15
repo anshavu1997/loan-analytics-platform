@@ -1,7 +1,7 @@
 # loan-analytics-platform
 Analyzing loan data using these components:
 
-1. On-prem SQL Server (simulated on your laptop)
+1. On-prem SQL Server ()
 
 2. Cloud source (e.g., CSV/Parquet files in Azure Blob Storage)
 
