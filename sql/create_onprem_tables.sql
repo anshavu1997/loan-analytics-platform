@@ -34,7 +34,7 @@ LoanTermMonths INT,
 LoanType VARCHAR(50),
 Channel VARCHAR(50),
 Status VARCHAR(50),
-CreatedDate DATETIME
+CreatedDate DATETIME 
 )
 
 
@@ -53,4 +53,26 @@ SELECT * FROM dbo.DimCustomer
 
 
 --Insert the values in dbo.FactLoanOrigination table
+INSERT INTO dbo.FactLoanOrigination
+(LoanOriginationID, LoanID, CustomerID, ApplicationDate, ApprovalDate, LoanAmount, InterestRate, LoanTermMonths, LoanType, Channel, Status)
+VALUES
+(1, 'LOAN-1001', 1001, '2024-01-10', '2024-01-12', 10000.00, 0.075, 36, 'Personal', 'Online', 'Approved'),
+(2, 'LOAN-1002', 1002, '2024-01-15', '2024-01-17', 25000.00, 0.065, 60, 'Auto', 'Branch', 'Approved'),
+(3, 'LOAN-1003', 1003, '2024-01-20', '2024-01-22', 5000.00, 0.095, 24, 'Personal', 'Online', 'Approved'),
+(4, 'LOAN-1004', 1004, '2024-01-25', NULL, 150000.00, 0.045, 360, 'Mortgage', 'Branch', 'Pending'),
+(5, 'LOAN-1005', 1005, '2024-02-01', '2024-02-03', 8000.00, 0.085, 36, 'Personal', 'Agent', 'Approved'),
+(6, 'LOAN-1006', 1002, '2024-02-05', '2024-02-07', 12000.00, 0.072, 48, 'Personal', 'Online', 'Approved'),
+(7, 'LOAN-1003', 1003, '2024-01-20', '2024-01-22', 5000.00, 0.095, 24, 'Personal', 'Online', 'Approved')
+
+SELECT * FROM dbo.FactLoanOrigination
+
+
+-- Altering the colum to add default constraint for Created Date
+--ALTER TABLE dbo.FactLoanOrigination
+--ADD CONSTRAINT df_CreatedDate
+--DEFAULT(getDate()) FOR CreatedDate
+
+
+
+
 
